@@ -1,24 +1,32 @@
 package co.uniquindio.primerPrograma.triangulo;
 
-public class Aplicacion 
-{
-	public static void main(String[]args)
-	{
-		double base=5;
-		double altura=4;
-		double area=0;
-		double volumen=0;
-		
-		Triangulo miTriangulo;// declaracion de un objeto
-		miTriangulo=new Triangulo();// inicializacion del objeto 
-		miTriangulo.setBase(base);// aca fijamos el valor de "base"
-		miTriangulo.setAltura(altura);//aca fijamos el valor de "altura"
-		area=miTriangulo.calcularArea();// aca le damos valor a la variable base segun lo que esta en la clase triangulo
-		volumen=miTriangulo.calcularVolumen();
-		
-		System.out.print("el area es: " + area +
-				"\nel volumen es: "+ volumen+"\n\ndone by juan.");
-		
-		
+import java.util.Scanner;
+
+public class Aplicacion {
+
+	public static void main(String args[]) {
+		double base;
+		double altura;
+		double area = 0;
+		base = leerDoubleConsola("Ingrese la base: ");
+		altura = leerDoubleConsola("Ingrese la altura: ");
+		Triangulo miTriangulo; 
+		miTriangulo = new Triangulo();
+		miTriangulo.setBase(base); 
+		miTriangulo.setAltura(altura); 
+		area = miTriangulo.calcularArea(); 
+		System.out.println("El area es " + area);
 	}
+
+	//sirve para que el usuario ingrese los valores
+	public static double leerDoubleConsola(String mensaje) {
+		double dato = 0;
+		String captura = "";
+		System.out.println(mensaje);
+		Scanner teclado = new Scanner(System.in);
+		captura = teclado.nextLine();
+		dato = Double.parseDouble(captura);
+		return dato;
+	}
+
 }
